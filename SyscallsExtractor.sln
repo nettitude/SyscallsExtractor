@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyscallsExtractor", "SyscallsExtractor\SyscallsExtractor.csproj", "{E1E5508B-2096-4862-984A-40F3C250ADAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1E5508B-2096-4862-984A-40F3C250ADAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1E5508B-2096-4862-984A-40F3C250ADAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1E5508B-2096-4862-984A-40F3C250ADAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1E5508B-2096-4862-984A-40F3C250ADAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
