@@ -11,11 +11,13 @@ namespace SyscallsExtractor
 
         [DllImport("kernel32", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
         internal static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
-
+        
+        [DllImport("kernel32.dll")]
+        internal static extern uint GetLastError();
 
         [SuppressUnmanagedCodeSecurity]
         [DllImport("ntdll.dll", SetLastError = true)]
-        public static extern int RtlGetVersion(ref OSVersionInfoExW versionInfo);
+        internal static extern int RtlGetVersion(ref OSVersionInfoExW versionInfo);
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
         public struct OSVersionInfoExW

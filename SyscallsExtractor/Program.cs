@@ -31,6 +31,7 @@ namespace SyscallsExtractor
             if(ntStatus != 0)
             {
                 Console.WriteLine($"Error getting version info, NTStatus: {ntStatus}");
+                return;
             }
             
             Console.WriteLine($"[*] Platform ID: {osVersionInfo.dwPlatformId}");
@@ -40,7 +41,14 @@ namespace SyscallsExtractor
             Console.WriteLine($"[*] Service Pack Major: {osVersionInfo.wServicePackMajor}");
             Console.WriteLine($"[*] Service Pack Minor: {osVersionInfo.wServicePackMinor}");
             Console.WriteLine("\n[*] Syscalls\n");
+            
             var hNtdll = Internals.LoadLibrary("ntdll.dll");
+
+            if (hNtdll == IntPtr.Zero)
+            {
+                Console.WriteLine($"Unable to load ntdll.dll, last error: 0x{Internals.GetLastError():X}");
+                return;
+            }
 
             var pNtOpenProcess = Internals.GetProcAddress(hNtdll, Enum.GetName(typeof(SysCalls), SysCalls.NtOpenProcess));
             Console.WriteLine($"NtOpenProcess:\t\t 0x{Marshal.ReadInt32(pNtOpenProcess + 4):X}");
